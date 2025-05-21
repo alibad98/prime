@@ -12,6 +12,8 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import logoWhite from "@/images/logo/wihte.png";
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -104,7 +106,7 @@ const Navbar = () => {
               )}
             </Button>
             <Link href="/" className="flex items-center flex-shrink-0">
-              <span className="text-xl font-bold text-white">Prime</span>
+              <Image src={logoWhite} alt="Logo" width={100} height={100} />
             </Link>
             <div className="flex items-center gap-4">
               {socialLinks.map(({ icon, href, label }) => (
@@ -156,7 +158,7 @@ const Navbar = () => {
                 )}
               >
                 <span>{link.name}</span>
-                
+
                 {/* Glow effect on hover */}
                 <span className="absolute inset-0 rounded-lg bg-primary/5 scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"></span>
               </Link>
