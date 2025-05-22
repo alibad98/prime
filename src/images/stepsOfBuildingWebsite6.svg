@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.125 5.375H31.25V23.55H29.725" stroke="#CD9D5D" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M5.27539 20.2V14.375" stroke="#CD9D5D" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M11.9492 9.75H31.1742" stroke="#CD9D5D" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M23.0508 7.3H23.2508V7.5H23.0508V7.3Z" stroke="#CD9D5D" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M25.8008 7.3H26.0008V7.5H25.8008V7.3Z" stroke="#CD9D5D" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M28.5254 7.3H28.7254V7.5H28.5254V7.3Z" stroke="#CD9D5D" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M13.3 23.725L17.25 24.475L19.525 24.675C21.825 24.225 24.1 23.8 26.4 23.35C27.225 23.15 28.025 23.65 28.25 24.425C28.45 25.2 28.025 26 27.25 26.275C23.425 26.975 19.625 27.675 15.8 28.375C15.475 28.325 15.075 28.25 14.675 28.125C14.25 28 13.875 27.85 13.575 27.7L8.125 25.85L3.375 27.425L3.5 22.425C6.125 21.6 8.725 20.775 11.35 19.95C14 20.65 16.65 21.325 19.325 22.025C20.2 22.2 20.75 22.925 20.7 23.6C20.65 24.225 20.05 24.575 19.975 24.625" stroke="#CD9D5D" stroke-miterlimit="10"/>
+<path d="M12.6758 13.25L13.4258 14L14.8508 12.575" stroke="#CD9D5D" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M12.6758 17.15L13.4258 17.9L14.8508 16.475" stroke="#CD9D5D" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M17.625 13.275H25.025" stroke="#CD9D5D" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M17.625 17.425H25.025" stroke="#CD9D5D" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M11.15 9.725V7.9H10.125C10.025 7.4 9.825 6.925 9.55 6.5L10.275 5.775L8.975 4.5L8.25 5.225C7.825 4.95 7.35 4.75 6.85 4.65V3.625H5.025V4.65C4.525 4.75 4.05 4.95 3.625 5.225L2.925 4.5L1.625 5.8L2.35 6.5C2.075 6.925 1.875 7.4 1.775 7.9H0.75V9.725H1.775C1.875 10.225 2.075 10.7 2.35 11.125L1.625 11.85L2.925 13.15L3.65 12.425C4.075 12.7 4.55 12.9 5.05 13V14H6.875V13C7.375 12.9 7.85 12.7 8.275 12.425L9 13.15L10.3 11.85L9.575 11.125C9.85 10.7 10.05 10.225 10.15 9.725H11.15Z" stroke="#CD9D5D" stroke-miterlimit="10" stroke-linecap="round"/>
+<path d="M5.95078 11.35C7.3453 11.35 8.47578 10.2195 8.47578 8.825C8.47578 7.43048 7.3453 6.3 5.95078 6.3C4.55626 6.3 3.42578 7.43048 3.42578 8.825C3.42578 10.2195 4.55626 11.35 5.95078 11.35Z" stroke="#CD9D5D" stroke-miterlimit="10" stroke-linecap="round"/>
+</svg>

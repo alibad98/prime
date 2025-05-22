@@ -43,7 +43,7 @@ const ServiceShowcase: React.FC<ServiceShowcaseProps> = ({
 
   return (
     <div className="w-full max-w-7xl mx-auto p-6 bg-secondary">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-full min-h-96">
+      <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-6 h-full min-h-96">
         {/* Buttons */}
         <div className="lg:col-span-1">
           <div className="relative flex flex-col h-full">
@@ -76,7 +76,7 @@ const ServiceShowcase: React.FC<ServiceShowcaseProps> = ({
                     : "bg-transparent border-gray-600 text-white hover:text-[#CD9D5D] hover:bg-secondary/90"
                 )}
               >
-                <span className="text-sm font-medium leading-relaxed">
+                <span className="text-lg font-medium leading-relaxed">
                   {category.title}
                 </span>
               </Button>
@@ -118,7 +118,7 @@ const ServiceShowcase: React.FC<ServiceShowcaseProps> = ({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="h-full flex flex-col justify-center text-right bg-primary px-12 max-sm:py-6 space-y-6"
+              className="h-full flex flex-col justify-center text-right bg-primary px-12 py-6 space-y-6"
             >
               <div className="space-y-3">
                 {currentCategory.description.platforms.map(
@@ -133,16 +133,16 @@ const ServiceShowcase: React.FC<ServiceShowcaseProps> = ({
                         ease: "easeOut",
                       }}
                     >
-                      <span className="text-white text-sm">• {platform}</span>
+                      <span className="text-white sm:text-lg ">• {platform}</span>
                     </motion.div>
                   )
                 )}
               </div>
               <div>
-                <h3 className="text-white text-lg font-bold mb-2">
+                <h3 className="text-white sm:text-xl text-lg font-bold mb-2">
                   {currentCategory.description.title}
                 </h3>
-                <p className="text-white text-base leading-relaxed">
+                <p className="text-white sm:text-xl text-lg leading-relaxed">
                   {currentCategory.description.content}
                 </p>
               </div>

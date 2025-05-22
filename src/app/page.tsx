@@ -14,6 +14,11 @@ import { useEffect, useRef } from 'react';
 import ScrollSnapSection from '@/components/scroll-snap-showcase';
 import { motion } from 'framer-motion';
 import { CardHoverEffectDemo } from '@/components/cards-grid';
+import ServicesGrid from "@/components/services-grid";
+import OurNumbers from "@/components/OurNumbers";
+import Portfolio from "@/components/portfolio";
+import Reviews from "@/components/reviews";
+import TimeLineComponent from "@/components/TimeLineComponent";
 
 const categories: CategoryType[] = [
   {
@@ -103,7 +108,7 @@ export default function Home() {
   }, []);
   const ref = useRef(null);
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-center">
+    <div className="min-h-screen w-full flex flex-col items-center justify-center lg:space-y-16 space-y-6">
       <div className="min-h-screen">
         <ScrollSnapSection scrollToRef={ref} />
       </div>
@@ -114,7 +119,13 @@ export default function Home() {
         <div className="w-full bg-secondary">
           <CardHoverEffectDemo projects={projects} />
         </div>
+        <ServicesGrid/>
+      <OurNumbers/>
+      <Portfolio/>
+      <Reviews/>
+      <TimeLineComponent/>
       </div>
+
     </div>
   );
 }

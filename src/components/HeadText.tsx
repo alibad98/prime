@@ -12,7 +12,7 @@ const HeadText = ({ title }: { title: string }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="w-fit relative"
+      className="w-fit relative text-center"
     >
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
