@@ -4,6 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-gold: var(--gold);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -49,7 +50,7 @@ body {
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: #001119;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -58,6 +59,7 @@ body {
   --primary: #001018;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: #00141F;
+  --gold: #CD9D5D;
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -123,4 +125,10 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+.container {
+  @apply container mx-auto px-3 w-full;
+}
+.section {
+  @apply py-16;
 }
