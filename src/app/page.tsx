@@ -4,6 +4,11 @@ import showcase1 from "@/images/showcase-1.png";
 import showcase2 from "@/images/showcase-2.png";
 import showcase3 from "@/images/showcase-3.png";
 import showcase4 from "@/images/showcase-4.png";
+import ServicesGrid from "@/components/services-grid";
+import OurNumbers from "@/components/OurNumbers";
+import Portfolio from "@/components/portfolio";
+import Reviews from "@/components/reviews";
+import TimeLineComponent from "@/components/TimeLineComponent";
 
 const categories: CategoryType[] = [
   {
@@ -50,8 +55,13 @@ const categories: CategoryType[] = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-center">
+    <div className="min-h-screen w-full flex flex-col items-center justify-center lg:space-y-16 space-y-6">
       <WhyPrime />
+      <ServicesGrid/>
+      <OurNumbers/>
+      <Portfolio/>
+      <Reviews/>
+      <TimeLineComponent/>
       <ServiceShowcase categories={categories} />
     </div>
   );
