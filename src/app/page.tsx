@@ -1,3 +1,4 @@
+import WhyPrime from "@/components/why-prime";
 import ServiceShowcase, { CategoryType } from "@/components/service-showcase";
 import showcase1 from "@/images/showcase-1.png";
 import showcase2 from "@/images/showcase-2.png";
@@ -50,6 +51,7 @@ const categories: CategoryType[] = [
 export default function Home() {
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-center">
+      <WhyPrime />
       <ServiceShowcase categories={categories} />
     </div>
   );
