@@ -94,7 +94,9 @@ const ServicesGrid = () => {
               key={i}
               className={cn(
                 "xl:h-[300px] lg:h-[150px] max-sm:h-[150px] text-white border border-l-0 border-[#FFFFFF14] p-6 flex flex-col justify-end gap-4 bg-[#00000020] hover:bg-[#00000099] transition-all duration-300 cursor-pointer sm:![background-image:none]",
-                i === 9 ? "lg:col-span-3 xl:col-span-1 lg:text-center xl:text-start" : "col-span-1"
+                i === 9
+                  ? "lg:col-span-3 xl:col-span-1 lg:text-center xl:text-start"
+                  : "col-span-1"
               )}
               style={{
                 backgroundImage: `url('${service.img}')`,
