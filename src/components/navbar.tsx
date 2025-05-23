@@ -14,6 +14,7 @@ import {
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import logoWhite from '@/images/logo/wihte.png';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -22,12 +23,14 @@ const Navbar = () => {
 
   const links = [
     { name: 'الرئيسية', href: '/' },
-    { name: 'من نحن', href: '/about' },
+    { name: 'الحملات الإعلانية ', href: '/about' },
     {
-      name: 'أنـــــــواع الإعـــــلانات التي نقــــــدمها',
+      name: 'تصميم واجهة المستخدم (UI)',
       href: '/projects',
     },
-    { name: 'تواصل معنا', href: '/contact' },
+    { name: 'خدمة تحسين محركات البحث (SEO)', href: '/contact' },
+    { name: ' صناعة المحتوى', href: '/contact' },
+    { name: 'تصميم موقع الكتروني احترافي', href: '/contact' },
   ];
 
   const isHomePage = pathname === '/';
@@ -96,22 +99,20 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-fit items-center">
             <Button
-              className="!p-0 w-fit hover:scale-110 bg-transparent transition-all duration-200"
+              className="!p-0 w-fit hover:scale-110 hover:bg-transparent bg-transparent transition-all duration-200 cursor-pointer [&_svg]:!size-8"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? (
-                <FaTimes size={36} className="text-white animate-spin-slow" />
+                <X size={36} className="text-white animate-spin-slow" />
               ) : (
-                <FaBars
-                  size={36}
-                  className="text-white hover:rotate-12 transition-transform duration-300"
-                />
+                
+                <Menu size={36} />
               )}
             </Button>
             <Link href="/" className="flex items-center flex-shrink-0">
               <Image src={logoWhite} alt="Logo" width={100} height={100} />
             </Link>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 relative">
               {socialLinks.map(({ icon, href, label }) => (
                 <Link
                   key={label}
@@ -132,7 +133,7 @@ const Navbar = () => {
       {/* menu-open*/}
       <div
         className={cn(
-          'fixed top-0 left-0 h-full w-full bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300',
+          'fixed top-0 left-0 h-full w-full bg-primary/80 [backdrop-filter:blur(24px)] z-40 transition-opacity duration-300',
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         )}
       >
@@ -141,7 +142,7 @@ const Navbar = () => {
             <div
               key={link.name}
               className={cn(
-                'transform transition-all duration-500 ease-out overflow-hidden',
+                'transform transition-all duration-500 ease-out overflow-hidden border-b last:border-0 w-full text-center',
                 isOpen
                   ? 'translate-y-0 opacity-100'
                   : 'translate-y-10 opacity-0',
@@ -149,21 +150,17 @@ const Navbar = () => {
               )}
               style={{
                 transitionDelay: isOpen ? `${index * 100}ms` : '0ms',
-                opacity: isOpen ? 1 - index * 0.15 : 0,
               }}
             >
               <Link
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className={cn(
-                  'relative block text-white text-4xl font-bold mb-8 px-4 py-2 hover:text-secondary transition-colors group',
-                  pathname === link.href && 'text-secondary'
+                  'relative block text-white text-3xl font-bold my-6 px-4 py-2 hover:text-gold transition-colors group',
+                  pathname === link.href && 'text-gold'
                 )}
               >
                 <span>{link.name}</span>
-
-                {/* Glow effect on hover */}
-                <span className="absolute inset-0 rounded-lg bg-primary/5 scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"></span>
               </Link>
             </div>
           ))}

@@ -1,14 +1,14 @@
-"use client";
-
 import {
   Timeline,
+  TimelineContent,
   TimelineDate,
   TimelineHeader,
   TimelineIndicator,
   TimelineItem,
   TimelineSeparator,
+  TimelineTitle,
 } from "@/components/ui/timeline";
-import { cn } from "@/lib/utils";
+import HeadText from "./HeadText";
 import stepsOfBuildingWebsite1 from "@/images/stepsOfBuildingWebsite1.svg";
 import stepsOfBuildingWebsite2 from "@/images/stepsOfBuildingWebsite2.svg";
 import stepsOfBuildingWebsite3 from "@/images/stepsOfBuildingWebsite3.svg";
@@ -16,10 +16,10 @@ import stepsOfBuildingWebsite4 from "@/images/stepsOfBuildingWebsite4.svg";
 import stepsOfBuildingWebsite5 from "@/images/stepsOfBuildingWebsite5.svg";
 import stepsOfBuildingWebsite6 from "@/images/stepsOfBuildingWebsite6.svg";
 import stepsOfBuildingWebsite7 from "@/images/stepsOfBuildingWebsite7.svg";
-import Image from "next/image";
+import { cn } from "@/lib/utils";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import HeadText from "./HeadText";
+import Image from "next/image";
 
 const items = [
   {
@@ -114,104 +114,21 @@ const items = [
   },
 ];
 
-export default function TimeLineComponent() {
+export default function TimeLineHorizontal() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    once: false,
+    margin: "0px 0px -100px 0px",
+  });
   return (
-    <section className="section flex flex-col items-center justify-center space-y-16">
+    <section className="section container flex flex-col items-center justify-center space-y-16">
       <HeadText title="خطوات إنشاء الموقـــــــــع مع Prime" />
-      {/* Desktop View */}
-      <Timeline
-        defaultValue={items.length}
-        dir="ltr"
-        className="container max-sm:hidden"
-      >
-        {items.map((item) => {
-          const ref = useRef(null);
-          const isInView = useInView(ref, { once: false, margin: "0px 0px -100px 0px" });
+      <div className="relative w-full h-[700px]">
+        {/* line  */}
+        <div className="absolute w-full h-px bg-gold"></div>
+        
 
-          return ( 
-            <TimelineItem
-              key={item.id}
-              step={item.id}
-              className="w-[calc(50%-24px)] odd:ms-auto even:text-right even:group-data-[orientation=vertical]/timeline:ms-0 even:group-data-[orientation=vertical]/timeline:me-8 even:group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-indicator]]:-right-6 even:group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-indicator]]:left-auto even:group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-indicator]]:translate-x-1/2 even:group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-separator]]:-right-6 even:group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-separator]]:left-auto even:group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-separator]]:translate-x-1/2 relative !pb-0"
-            >
-              <TimelineHeader>
-                <TimelineSeparator />
-                <motion.div ref={ref}
-                    initial={{ opacity: 0, x:item.id % 2 === 0 ? -50 :  50 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: item.id % 2 === 0 ? -50 :  50 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}>
 
-                <TimelineDate
-                  dir="rtl"
-                  className="border border-gold/80 min-h-[150px] rounded-md relative"
-                  
-                >
-                  <div
-                    className={cn(
-                      "absolute w-4 h-px bg-gold/80 top-1.5",
-                      item.id % 2 === 0 ? "-right-4" : "-left-4"
-                    )}
-                  ></div>
-
-                  <div
-                  
-                    className="w-full h-full flex flex-col p-5 gap-4"
-                  >
-                    <div dir="rtl" className="flex items-center gap-3">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        width={32}
-                        height={32}
-                      />
-                      <p className="text-white text-lg">{item.title}</p>
-                    </div>
-                    <div className="flex-1 flex flex-col justify-center">
-                      {item.desc()}
-                    </div>
-                  </div>
-                </TimelineDate>
-                </motion.div>
-                <TimelineIndicator />
-              </TimelineHeader>
-            </TimelineItem>
-          );
-        })}
-      </Timeline>
-
-      {/* Mobile View */}
-      <div className="container space-y-3 sm:hidden">
-        {items.map((item, idx) => {
-          const ref = useRef(null);
-          const isInView = useInView(ref, { once: false, margin: "0px 0px -100px 0px" });
-
-          return (
-            <motion.div
-              key={idx}
-              ref={ref}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              dir="rtl"
-              className="border border-gold/80 min-h-[150px] rounded-md relative"
-            >
-              <div className="w-full h-full flex flex-col p-5 gap-4">
-                <div className="flex items-center gap-3">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={32}
-                    height={32}
-                  />
-                  <p className="text-white text-lg">{item.title}</p>
-                </div>
-                <div className="flex-1 flex flex-col justify-center">
-                  {item.desc()}
-                </div>
-              </div>
-            </motion.div>
-          );
-        })}
       </div>
     </section>
   );
