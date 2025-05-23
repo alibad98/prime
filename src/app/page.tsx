@@ -118,7 +118,18 @@ export default function Home() {
         <WhyPrime />
         <ServiceShowcase categories={categories} />
         <div className="w-full bg-secondary">
-          <CardHoverEffectDemo projects={projects} />
+          <CardHoverEffectDemo
+            title="لماذا تحتاج إلى تصميم واجهة مستخدم احترافية؟"
+            description={
+              <>
+                نحن لا نقدم إعلانًا فقط… نحن نبني استراتيجية ذكية تستهدف عملائك
+                الحقيقيين
+                <br />
+                وتحولهم إلى زبائن دائمين.
+              </>
+            }
+            projects={projects}
+          />
         </div>
         <ServicesGrid />
         <OurNumbers />
@@ -126,7 +137,6 @@ export default function Home() {
         <Reviews />
         <TimeLineComponent />
         <TimeLineHorizontal />
-        
       </div>
     </div>
   );
