@@ -20,6 +20,12 @@ import Portfolio from "@/components/portfolio";
 import Reviews from "@/components/reviews";
 import TimeLineComponent from "@/components/TimeLineComponent";
 import TimeLineHorizontal from "@/components/TimeLineHorizontal";
+import {
+  StepsToContentCreaction,
+  StepsToCreateUI,
+  StepsToCreateWebsite,
+  WorkStepsWithUs,
+} from "@/lib/data";
 
 const categories: CategoryType[] = [
   {
@@ -133,10 +139,26 @@ export default function Home() {
         </div>
         <ServicesGrid />
         <OurNumbers />
-        <Portfolio />
         <Reviews />
-        <TimeLineComponent />
-        <TimeLineHorizontal />
+
+        <Portfolio />
+        <TimeLineComponent
+          items={StepsToCreateWebsite}
+          title="خطوات إنشاء الموقـــــــــع مع Prime"
+        />
+        <TimeLineHorizontal
+          items={WorkStepsWithUs}
+          title="خطـــــوات العمـــــل معنــــــا"
+        />
+        <TimeLineHorizontal
+          items={StepsToCreateUI}
+          title="خطواتنــــــــــــا في تصميم واجهــــــــــــة المستخدم"
+        />
+        <TimeLineHorizontal
+          items={StepsToContentCreaction}
+          title=" خطوات صناعة المحتــــــــــوى معنــــــــــا"
+        />
+
       </div>
     </div>
   );
