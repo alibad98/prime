@@ -1,10 +1,8 @@
-'use client';
+"use client";
 
-import { motion, useAnimation } from 'framer-motion';
-import { useEffect } from 'react';
-// import { useInView } from 'react-intersection-observer';
-import { HoverEffect } from './ui/card-hover-effect';
-import HeadText from './HeadText';
+import { motion } from "framer-motion";
+import { HoverEffect } from "./ui/card-hover-effect";
+import HeadText from "./HeadText";
 
 type Project = {
   icon: any;
@@ -12,51 +10,57 @@ type Project = {
   link: string;
 };
 
-interface CardHoverEffectProps {
+interface ServiceShowcaseProps {
   projects: Project[];
+  title: string;
+  description: string | React.ReactNode;
+  className?: string;
+  titleClassName?: string;
+  descriptionClassName?: string;
 }
 
-export function CardHoverEffectDemo({ projects }: CardHoverEffectProps) {
-  // const controls = useAnimation();
-  // const { ref, inView } = useInView({
-  //   triggerOnce: false,
-  //   rootMargin: '-100px',
-  // });
-
-  // useEffect(() => {
-  //   if (inView) {
-  //     controls.start({
-  //       opacity: 1,
-  //       y: 0,
-  //       transition: { duration: 0.6, ease: 'easeOut' },
-  //     });
-  //   }
-  // }, [inView, controls]);
-
+export function CardHoverEffectDemo({
+  projects,
+  title,
+  description,
+  className = "",
+  descriptionClassName = "",
+}: ServiceShowcaseProps) {
   return (
-    <div className="items-center flex flex-col gap-8 py-12 my-5 text-center">
-      <HeadText title="لماذا تحتاج إلى تصميم واجهة مستخدم احترافية؟" />
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: false, margin: "-100px" }}
+      transition={{ duration: 0.7 }}
+      className={`items-center flex flex-col gap-8 py-12 my-5 text-center bg-secondary ${className}`}
+    >
+      <HeadText title={title} />
+
       <motion.p
-        // ref={ref}
         initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-[#FFFFFF]/80 text-xl max-w-3xl mx-auto"
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ delay: 0.2, duration: 0.7 }}
+        className={`text-[#FFFFFF]/80 text-xl max-w-3xl mx-auto ${descriptionClassName}`}
       >
-        نحن لا نقدم إعلانًا فقط… نحن نبني استراتيجية ذكية تستهدف عملائك
-        الحقيقيين
-        <br />
-        وتحولهم إلى زبائن دائمين.
+        {description}
       </motion.p>
 
-      <div className="mx-auto px-8 -mt-9 pt-0 !bg-secondary">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ delay: 0.4, duration: 0.7 }}
+        className="mx-auto px-8 -mt-9 pt-0 !bg-secondary w-full"
+      >
         <HoverEffect
           items={projects.map((project) => ({
-            title: project.icon, // because HoverEffect expects `title`
+            title: project.icon,
             description: project.description,
             link: project.link,
           }))}
         />
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
