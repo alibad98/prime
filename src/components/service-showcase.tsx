@@ -142,7 +142,7 @@ const ServiceShowcase: React.FC<ServiceShowcaseProps> = ({
   };
 
   return (
-    <div className="items-center flex flex-col gap-8 py-12 my-5 text-center">
+    <div className="items-center flex flex-col gap-8 px-4 py-12 my-5 text-center">
       {title && (
         <motion.div
           initial={{ opacity: 0, y: -30 }}

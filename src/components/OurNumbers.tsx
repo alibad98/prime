@@ -25,7 +25,7 @@ const OurNumbers = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="section bg-secondary w-full" ref={ref}>
+    <section className="section bg-secondary w-full overflow-x-hidden" ref={ref}>
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}

@@ -19,7 +19,7 @@ const Reviews = () => {
   const inView = useInView(ref, { once: false, margin: "-100px" });
 
   return (
-    <section className="section bg-secondary w-full " ref={ref}>
+    <section className="section bg-secondary w-full overflow-x-hidden" ref={ref}>
       <div className="container space-y-16">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

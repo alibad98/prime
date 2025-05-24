@@ -12,7 +12,7 @@ const Portfolio = () => {
   const inView = useInView(ref, { once: false, margin: "-100px" });
 
   return (
-    <section className="!max-w-full space-y-10 py-12" ref={ref}>
+    <section className="!max-w-full space-y-10 py-12 overflow-x-hidden" ref={ref}>
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}

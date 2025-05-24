@@ -73,14 +73,14 @@ const services = [
 const ServicesGrid = () => {
   const [hoveredCard, setHoveredCard] = useState(0);
 
-  // Move hooks outside of map
-  const ref = useRef<HTMLDivElement>(null)
-  const inView =  useInView(ref, { once: false, margin: "-100px" })
+  const gridRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(gridRef, { once: false, margin: "-200px"});
 
   return (
-    <section className="w-full space-y-10 flex items-center justify-center flex-col">
+    <section className="w-full space-y-10 flex items-center justify-center flex-col overflow-x-hidden">
       <HeadText title="خدماتنــــــــا" />
       <div
+        ref={gridRef} // ✅ Apply the ref here
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 w-full max-md:!bg-none"
         style={{
           backgroundImage: `url('${services[hoveredCard].img}')`,
@@ -90,7 +90,6 @@ const ServicesGrid = () => {
       >
         {services.map((service, i) => (
           <motion.div
-            ref={ref}
             key={i}
             className={cn(
               "xl:h-[300px] lg:h-[150px] max-sm:h-[150px] text-white border border-l-0 border-[#FFFFFF14] p-6 flex flex-col justify-end gap-4 bg-[#00000020] hover:bg-[#00000099] transition-all duration-300 cursor-pointer sm:![background-image:none]",
@@ -118,5 +117,6 @@ const ServicesGrid = () => {
     </section>
   );
 };
+
 
 export default ServicesGrid;

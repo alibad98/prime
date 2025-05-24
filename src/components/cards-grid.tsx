@@ -32,7 +32,7 @@ export function CardHoverEffectDemo({
       whileInView={{ opacity: 1 }}
       viewport={{ once: false, margin: "-100px" }}
       transition={{ duration: 0.7 }}
-      className={`items-center flex flex-col gap-8 py-12 my-5 text-center bg-secondary ${className}`}
+      className={`items-center px-4 flex flex-col gap-8 py-12 my-5 text-center bg-secondary ${className}`}
     >
       <HeadText title={title} />
 

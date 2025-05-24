@@ -31,7 +31,7 @@ const WhyPrime = () => {
       ref={ref}
       initial="hidden"
       animate={isInView ? "show" : "hidden"}
-      className="container section grid grid-cols-1 lg:grid-cols-2 gap-10 px-4 sm:px-6 md:px-10"
+      className="container section grid grid-cols-1 lg:grid-cols-2 gap-10 px-4 sm:px-6 md:px-10 overflow-x-hidden"
     >
       {/* Left Content */}
       <motion.div

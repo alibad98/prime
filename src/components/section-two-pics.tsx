@@ -136,7 +136,7 @@ const SectionTwoPics = ({
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className={`py-12 lg:py-24 bg-gradient-to-br bg-transparent ${className}`}
+      className={`py-12 lg:py-24 bg-gradient-to-br bg-transparent px-4 ${className}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
