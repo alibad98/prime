@@ -8,15 +8,15 @@ import CountUp from "react-countup";
 const countItems = [
   {
     label: "عدد المشاريع",
-    value: 500,
+    value:366,
   },
   {
     label: "عدد العملاء",
-    value: 1000,
+    value: 294,
   },
   {
     label: "عدد المبيعات",
-    value: 250,
+    value: 753,
   },
 ];
 

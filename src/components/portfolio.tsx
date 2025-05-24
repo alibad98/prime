@@ -19,7 +19,7 @@ const Portfolio = () => {
         transition={{ duration: 0.7 }}
         className="flex flex-col items-center justify-center space-y-6 text-center px-4"
       >
-        <HeadText title="بورتفوليــــو أعمـــــــالنا" />
+        <HeadText title="سابقة أعمـــــــالنا" />
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -52,8 +54,22 @@
 }
 
 body {
-  font-family: "Noto Naskh Arabic", serif;
+  font-family: "Tajawal";
 }
+
+
+.border-grow::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(to right,  rgba(153, 153, 153, 0),rgba(255, 255, 255, 0.274));
+  transition: width 0.5s ease-out;
+  width: 100%;
+}
+
+
 
 :root {
   --radius: 0.625rem;

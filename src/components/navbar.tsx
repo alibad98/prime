@@ -104,7 +104,7 @@ const Navbar = () => {
             <Link href="/" className="flex items-center flex-shrink-0">
               <Image src={logoWhite} alt="Logo" width={100} height={100} />
             </Link>
-            <div className="flex items-center gap-4 relative">
+            <div className="flex items-start gap-4 relative">
               {socialLinks.map(({ icon, href, label }) => (
                 <Link
                   key={label}
@@ -129,12 +129,12 @@ const Navbar = () => {
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         )}
       >
-        <div className="h-full w-full flex flex-col justify-center items-center">
+        <div className="h-full flex flex-col justify-center  items-end w-[80%] m-auto">
           {links.map((link, index) => (
             <div
               key={link.name}
               className={cn(
-                "transform transition-all duration-500 ease-out overflow-hidden border-b last:border-0 border-white/20 w-full text-center",
+                "transform transition-all duration-500 ease-out overflow-hidden  w-full border-grow",
                 isOpen
                   ? "translate-y-0 opacity-100"
                   : "translate-y-10 opacity-0",
