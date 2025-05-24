@@ -29,7 +29,7 @@ const Footer = () => {
               alt="Footer background"
               fill
               className="object-cover"
-              priority
+              
             />
           </div>
 

@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body
-        className={` ${geistSans.variable} ${geistMono.variable} ${notoNaskhArabic.variable} antialiased`}
+        className={` ${geistSans.variable} ${geistMono.variable} ${notoNaskhArabic.variable} antialiased overflow-x-hidden`}
       >
         <Navbar />
         <main className="pt-16 min-h-screen overflow-x-hidden">{children}</main>

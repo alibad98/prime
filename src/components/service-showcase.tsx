@@ -274,7 +274,7 @@ const ServiceShowcase: React.FC<ServiceShowcaseProps> = ({
                     alt={currentCategory.title}
                     fill
                     className="object-cover transition-transform duration-700 hover:scale-105"
-                    priority
+                    
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <motion.div
