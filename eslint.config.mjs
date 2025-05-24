@@ -27,7 +27,6 @@ const eslintConfig = [
       ],
       "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/no-empty-interface": "warn",
-      "react-hooks/rules-of-hooks": "warn",
     },
   },
 ];
