@@ -34,19 +34,19 @@ export default function TimeLineComponent({ items,title }:{ items: {
   const mobileRefs = useRef(items.map(() => React.createRef()));
 
   // Create arrays to track if each item is in view
-  const desktopInView = items.map((_, index) =>
-    useInView(desktopRefs.current[index] as React.RefObject<HTMLDivElement>, {
+  const desktopInView = Array.from({ length: items.length }, (_, i) => {
+    return useInView(desktopRefs.current[i] as React.RefObject<HTMLDivElement>, {
       once: false,
       margin: "0px 0px -100px 0px",
-    })
-  );
+    });
+  });
 
-  const mobileInView = items.map((_, index) =>
-    useInView(mobileRefs.current[index] as React.RefObject<HTMLDivElement>, {
+  const mobileInView = Array.from({ length: items.length }, (_, i) => {
+    return useInView(mobileRefs.current[i] as React.RefObject<HTMLDivElement>, {
       once: false,
       margin: "0px 0px -100px 0px",
-    })
-  );
+    });
+  });
 
   return (
     <section className="section flex flex-col items-center justify-center space-y-16">

@@ -13,11 +13,49 @@ import {
 } from "react-icons/fa";
 import { Separator } from "./ui/separator";
 import doorOpen from "@/images/doorOpen.png";
+import qrcode from "@/images/qrcode.jpeg";
 import logo from "@/images/logo/Orginal-Logo.png";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
+
+  const path = usePathname() as keyof typeof content;
+  const content = {
+    "/": {
+      title: "جاهز تكبر علامتك التجارية؟",
+      desc: "احجز استشارتك المجانية مع فريق برايم وابدأ مشوارك الرقمي بثقة.",
+      button: "احجز الآن",
+    },
+    "/advertising-campaigns": {
+      title: "جاهز تبدأ وتخلي إعلانك يشتغل لك وانت مرتاح؟",
+      desc: "احجز مكالمتك المجانية معنا اليوم وخلينا نخطط لحملتك الإعلانية باحترافية",
+      button: "تواصل معنا الآن",
+    },
+    "/content-creation": {
+      title:
+        " جاهز تبدأ تبني هويتـــــــك وتكســـــــب جمهورك بالمحتوى الصـــــــــح؟",
+      desc: "تواصل معنا الآن واحصل على استشارة مجانية",
+      button: "اتصل بنا الآن ",
+    },
+    "/seo-services": {
+      title:
+        "تواصــــــــــل معنا الآن وابدأ خطـــــــــــــة السيو المناسبــــــــــــــــة معك !",
+      desc: "",
+      button: "اتصل بنا الآن",
+    },
+    "/ui-ux-design": {
+      title: " هل ترغب في واجهة تُعبّر عنك وتجذب جمهورك؟",
+      desc: "تواصل معنا اليوم، ودعنا نصمم لك واجهة استثنائية ترتقي بتجربتك الرقمية.",
+      button: "تواصل معنا الآن",
+    },
+    "/web-design": {
+      title: "ابدأ موقعــــــــك الآن مع Prime",
+      desc: "اذا كنت تبدأ مشروعك أو بتجدد حضورك الرقمي، فريق Prime جاهز يصمم لك موقع يعبر عنك و يوصل رسالتك بأفضل صورة.",
+      button: "اتصل بنا الآن للحصول على استشارة مجانية",
+    },
+  };
   return (
     <footer className="w-full bg-primary text-white">
       {/* Feature Card */}
@@ -29,7 +67,6 @@ const Footer = () => {
               alt="Footer background"
               fill
               className="object-cover"
-              
             />
           </div>
 
@@ -42,19 +79,31 @@ const Footer = () => {
           >
             {/* Image Content side */}
             <div className="flex flex-col items-center md:items-start text-right space-y-4 md:space-y-6 flex-1">
-              <h2 className="text-2xl md:text-4xl font-bold">
-                جاهز تكبر علامتك التجارية؟
+              <h2 className="text-2xl md:text-4xl font-bold lg:w-4/5 leading-relaxed text-center">
+                {content[path]?.title || content["/"].title}
               </h2>
-              <p className="text-sm md:text-base text-[#001018B5] max-w-md">
-                احجز استشارتك المجانية مع فريق برايم وابدأ مشوارك الرقمي بثقة.
-              </p>
-              <Button
-                variant="main"
-                size="lg"
-                className="bg-white text-primary hover:bg-primary hover:text-white transition-colors border-none px-12 rounded-r-full rounded-bl-full"
-              >
-                <span className="text-base font-medium">احجز الآن</span>
-              </Button>
+              {content[path]?.desc && (
+                <p className="text-sm md:text-base text-[#001018B5] max-w-md text-center">
+                  {content[path].desc}
+                </p>
+              )}
+              {content[path]?.button && (
+                <a
+                  href="https://api.whatsapp.com/send?phone=966559713394"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    variant="main"
+                    size="lg"
+                    className="bg-white text-primary hover:bg-primary hover:text-white transition-colors border-none px-12 rounded-r-full rounded-bl-full"
+                  >
+                    <span className="text-base font-medium">
+                      {content[path].button}
+                    </span>
+                  </Button>
+                </a>
+              )}
             </div>
           </motion.div>
         </div>
@@ -128,59 +177,6 @@ const Footer = () => {
               </motion.p>
             </motion.div>
 
-            {/* Useful Links - Fade in with slight bounce */}
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, x: 30 },
-                visible: {
-                  opacity: 1,
-                  x: 0,
-                  transition: {
-                    type: "spring",
-                    bounce: 0.4,
-                  },
-                },
-              }}
-              className="text-right"
-            >
-              <motion.h3
-                className="text-lg font-bold mb-4"
-                whileHover={{ scale: 1.02 }}
-              >
-                روابط مفيدة
-              </motion.h3>
-              <ul className="space-y-2 text-white/80">
-                {[
-                  "من نحن",
-                  "خدماتنا التسويقية",
-                  "المدونة والأخبار",
-                  "فريق العمل",
-                ].map((link, i) => (
-                  <motion.li
-                    key={i}
-                    variants={{
-                      hidden: { opacity: 0, y: 10 },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        transition: {
-                          delay: 0.1 * i,
-                        },
-                      },
-                    }}
-                    whileHover={{ x: -5 }}
-                  >
-                    <Link
-                      href="/"
-                      className="hover:text-white transition-colors"
-                    >
-                      {link}
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-
             {/* Contact Info - Slide up with fade */}
             <motion.div
               variants={{
@@ -218,7 +214,9 @@ const Footer = () => {
                   <motion.div whileHover={{ rotate: 10 }}>
                     <FaPhone className="text-white" />
                   </motion.div>
-                  <span>+966XXXXXXXX</span>
+                  <a target="_blank" dir="ltr" href="tel:+966559713394">
+                    +966 55 971 3394
+                  </a>
                 </motion.li>
                 <motion.li
                   className="flex items-center justify-start gap-2 truncate"
@@ -234,7 +232,9 @@ const Footer = () => {
                   <motion.div whileHover={{ rotate: 10 }}>
                     <FaEnvelope className="text-white" />
                   </motion.div>
-                  <span>info@primemarketingco.com</span>
+                  <a target="_blank" href="mailto:info@primemarketingco.com">
+                    info@primemarketingco.com
+                  </a>
                 </motion.li>
                 <motion.li
                   className="flex items-center justify-start gap-2"
@@ -285,34 +285,87 @@ const Footer = () => {
                 وصول سريع
               </motion.h3>
               <ul className="space-y-2 text-white/80">
-                {["المدونة", "الخدمات", "من نحن", "تواصل معنا"].map(
-                  (link, i) => (
-                    <motion.li
-                      key={i}
-                      variants={{
-                        hidden: { opacity: 0, x: 30 },
-                        visible: {
-                          opacity: 1,
-                          x: 0,
-                          transition: {
-                            type: "spring",
-                            stiffness: 200,
-                            damping: 10,
-                          },
+                {[
+                  {
+                    label: "الحملات الإعلانية",
+                    link: "/advertising-campaigns",
+                  },
+                  { label: "تصميم واجهة المستخدم (UI)", link: "/ui-ux-design" },
+                  {
+                    label: "خدمة تحسين محركات البحث (SEO)",
+                    link: "/seo-services",
+                  },
+                  { label: "صناعة المحتوى", link: "/content-creation" },
+                  { label: "تصميم موقع الكتروني احترافي", link: "/web-design" },
+                ].map((item, i) => (
+                  <motion.li
+                    key={i}
+                    variants={{
+                      hidden: { opacity: 0, x: 30 },
+                      visible: {
+                        opacity: 1,
+                        x: 0,
+                        transition: {
+                          type: "spring",
+                          stiffness: 200,
+                          damping: 10,
                         },
-                      }}
-                      whileHover={{ scale: 1.03 }}
+                      },
+                    }}
+                    whileHover={{ scale: 1.03 }}
+                  >
+                    <Link
+                      href={item.link}
+                      className="hover:text-white transition-colors"
                     >
-                      <Link
-                        href="/"
-                        className="hover:text-white transition-colors"
-                      >
-                        {link}
-                      </Link>
-                    </motion.li>
-                  )
-                )}
+                      {item.label}
+                    </Link>
+                  </motion.li>
+                ))}
               </ul>
+            </motion.div>
+            <motion.div
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.1,
+                  },
+                },
+              }}
+              className="text-right"
+            >
+              {/* <motion.h3
+                className="text-lg font-bold mb-4"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      type: "spring",
+                      stiffness: 100,
+                    },
+                  },
+                }}
+              >
+                وصول سريع
+              </motion.h3> */}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://linktr.ee/PrimeAgency.sa"
+                title="Prime Agency Social Media Links"
+              >
+                <Image
+                  src={qrcode}
+                  alt="QR Code"
+                  width={150}
+                  height={150}
+                  className="shadow-lg transition-transform hover:scale-105"
+                />
+              </a>
             </motion.div>
           </div>
         </motion.div>
@@ -331,5 +384,4 @@ const Footer = () => {
     </footer>
   );
 };
-
 export default Footer;

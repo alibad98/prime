@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 
 interface HeroSectionProps {
@@ -18,6 +18,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   description,
   bgTitle,
 }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    once: true, // only animate once
+    margin: "-100px", // like your previous setup
+  });
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -47,14 +53,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <motion.section
-      className="relative h-[680px] w-full overflow-hidden "
+      ref={ref}
+      className="relative h-[680px] w-full overflow-hidden"
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: false, margin: "-100px" }}
+      animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
     >
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 -z-10">
         <Image
           src={image}
           alt="Hero Background"
@@ -62,7 +68,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-[#001018C9]/80 via-transparent " />
+        <div className="absolute inset-0 bg-[#001018C9]/80 pointer-events-none" />
       </div>
 
       {/* Content Container */}
@@ -84,15 +90,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             {title}
           </motion.h1>
 
+          {/* Background Title */}
           {bgTitle && (
-            <>
-              <motion.h1
-                className="mt-12 -mb-4  text-3xl font-bold text-white bg-[#2589BC] sm:text-4xl lg:text-5xl"
-                variants={textVariants}
-              >
-                {bgTitle}
-              </motion.h1>
-            </>
+            <motion.h1
+              className="mt-12 -mb-4 text-3xl font-bold text-white bg-[#2589BC] sm:text-4xl lg:text-5xl"
+              variants={textVariants}
+            >
+              {bgTitle}
+            </motion.h1>
           )}
 
           {/* Description */}

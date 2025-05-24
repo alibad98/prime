@@ -73,6 +73,10 @@ const services = [
 const ServicesGrid = () => {
   const [hoveredCard, setHoveredCard] = useState(0);
 
+  // Move hooks outside of map
+  const ref = useRef<HTMLDivElement>(null)
+  const inView =  useInView(ref, { once: false, margin: "-100px" })
+
   return (
     <section className="w-full space-y-10 flex items-center justify-center flex-col">
       <HeadText title="خدماتنــــــــا" />
@@ -84,37 +88,32 @@ const ServicesGrid = () => {
           backgroundPosition: "center",
         }}
       >
-        {services.map((service, i) => {
-          const ref = useRef(null);
-          const inView = useInView(ref, { once: false, margin: "-100px" });
-
-          return (
-            <motion.div
-              ref={ref}
-              key={i}
-              className={cn(
-                "xl:h-[300px] lg:h-[150px] max-sm:h-[150px] text-white border border-l-0 border-[#FFFFFF14] p-6 flex flex-col justify-end gap-4 bg-[#00000020] hover:bg-[#00000099] transition-all duration-300 cursor-pointer sm:![background-image:none]",
-                i === 9
-                  ? "lg:col-span-3 xl:col-span-1 lg:text-center xl:text-start"
-                  : "col-span-1"
-              )}
-              style={{
-                backgroundImage: `url('${service.img}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-              onMouseEnter={() => setHoveredCard(i)}
-              onMouseLeave={() => setHoveredCard(0)}
-              whileHover={{ scale: 1.02 }}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.05, duration: 0.4 }}
-            >
-              <h3 className="text-xl font-bold">{service.title}</h3>
-              <p className="text-sm">{service.desc}</p>
-            </motion.div>
-          );
-        })}
+        {services.map((service, i) => (
+          <motion.div
+            ref={ref}
+            key={i}
+            className={cn(
+              "xl:h-[300px] lg:h-[150px] max-sm:h-[150px] text-white border border-l-0 border-[#FFFFFF14] p-6 flex flex-col justify-end gap-4 bg-[#00000020] hover:bg-[#00000099] transition-all duration-300 cursor-pointer sm:![background-image:none]",
+              i === 9
+                ? "lg:col-span-3 xl:col-span-1 lg:text-center xl:text-start"
+                : "col-span-1"
+            )}
+            style={{
+              backgroundImage: `url('${service.img}')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+            onMouseEnter={() => setHoveredCard(i)}
+            onMouseLeave={() => setHoveredCard(0)}
+            whileHover={{ scale: 1.02 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: i * 0.05, duration: 0.4 }}
+          >
+            <h3 className="text-xl font-bold">{service.title}</h3>
+            <p className="text-sm">{service.desc}</p>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

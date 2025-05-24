@@ -203,11 +203,17 @@ const SectionTwoPics = ({
             )}
 
             <motion.div variants={buttonVariants} className="pt-3 lg:pt-4">
-              <Button variant={buttonVariant}>
-                <span className="text-base sm:text-lg md:text-xl font-medium">
-                  {buttonText}
-                </span>
-              </Button>
+              <a
+                href="https://api.whatsapp.com/send?phone=966559713394"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant={buttonVariant}>
+                  <span className="text-base sm:text-lg md:text-xl font-medium">
+                    {buttonText}
+                  </span>
+                </Button>
+              </a>
             </motion.div>
           </motion.div>
 

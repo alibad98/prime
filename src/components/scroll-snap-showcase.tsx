@@ -262,7 +262,7 @@ const ScrollSnapSection = ({ scrollToRef }: any) => {
               ref={(el) => {
                 if (el) textRefs.current[i] = el;
               }}
-              className="absolute w-full text-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[clamp(1rem,5vw,5rem)] text-gray-200 font-extrabold leading-32"
+              className="absolute w-full text-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[clamp(1.5rem,5vw,5rem)] text-gray-200 font-extrabold xl:leading-32  leading-20"
             >
               {headings[i].split('\n').map((line, idx) => (
                 <span key={idx}>

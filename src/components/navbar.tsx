@@ -10,6 +10,7 @@ import {
   FaTwitter,
   FaBars,
   FaTimes,
+  FaWhatsapp,
 } from "react-icons/fa";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -64,23 +65,18 @@ const Navbar = () => {
   const socialLinks = [
     {
       icon: <FaFacebookF size={20} className="text-white" />,
-      href: "https://facebook.com",
+      href: "https://www.facebook.com/people/Prime-Agency/61568213612967/",
       label: "فيسبوك",
     },
     {
       icon: <FaInstagram size={20} className="text-white" />,
-      href: "https://instagram.com",
+      href: "https://www.instagram.com/primeagency.sa/#",
       label: "انستاجرام",
     },
     {
-      icon: <FaSnapchatGhost size={20} className="text-white" />,
-      href: "https://snapchat.com",
-      label: "سنابشات",
-    },
-    {
-      icon: <FaTwitter size={20} className="text-white" />,
-      href: "https://twitter.com",
-      label: "تويتر",
+      icon: <FaWhatsapp size={20} className="text-white" />,
+      href: "https://api.whatsapp.com/send?phone=966559713394",
+      label: "واتساب",
     },
   ];
 
@@ -152,7 +148,7 @@ const Navbar = () => {
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className={cn(
-                  "relative block text-white text-3xl font-bold my-6 px-4 py-2 hover:text-gold transition-colors group",
+                  "relative block text-white lg:text-3xl text-xl font-bold md:my-6 my-4 px-4 py-2 hover:text-gold transition-colors group",
                   pathname === link.href && "text-gold"
                 )}
               >

@@ -1,47 +1,75 @@
 "use client";
+import ServiceCard from "@/components/service-card-header";
+import contentHero from "@/images/contentCreationBackground.png";
+import WhatIsContentMaking from "@/images/WhatIsContentMaking.png";
 import SectionTwoPics from "@/components/section-two-pics";
 import React from "react";
-
-// web design page
-import TwoImageWebDesign1 from "@/images/TwoImageWebDesign1.png";
-import TwoImageWebDesign2 from "@/images/TwoImageWebDesign2.png";
-
-// content creation page
 import TwoImageContent1 from "@/images/TwoImageContent1.png";
 import TwoImageContent2 from "@/images/TwoImageContent2.png";
-
-// seo
-import TwoImageSeo1 from "@/images/TwoImageSEO1.png";
-import TwoImageSeo2 from "@/images/TwoImageSEO2.png";
-
-// UI
-import TwoImageUI1 from "@/images/TwoImageUI1.png";
-import TwoImageUI2 from "@/images/TwoImageUI2.png";
-
-// campaign
-import TwoImageCampaign1 from "@/images/TwoImageCampaign1.png";
-import TwoImageCampaign2 from "@/images/TwoImageCampaign2.png";
+import WhatIsItSection from "@/components/whatIsItSection";
+import { CardHoverEffectDemo } from "@/components/cards-grid";
+import {
+  categoriesContentCreation,
+  projectsContentCreation,
+  StepsToContentCreaction,
+} from "@/lib/data";
+import ServiceShowcase from "@/components/service-showcase";
+import TimeLineHorizontal from "@/components/TimeLineHorizontal";
 
 const page = () => {
   return (
-    <div>
-      {/* <SectionTwoPics
-        title="خدمة شاملة بعد التسليـــــــم"
-        description="عشان نضمن استمرارية نجاح موقعك، نقدم خدمات ما بعد التسليم، منها:"
-        features={[
-          "صيانة دورية للموقع",
-          "تحديثات أمنية",
-          "تحسينات دورية في الأداء",
-          "تدريب كامل على استخدام لوحة التحكم",
-          "دعم فني فوري عبر الإيميل أو الواتساب",
-        ]}
-        buttonText="اطلب الخدمة الان"
-        mainImage={TwoImageWebDesign1.src}
-        logoImage={TwoImageWebDesign2.src}
-        buttonVariant="main"
-        className="my-8"
-      /> */}
-      {/* <SectionTwoPics
+    <div className="lg:space-y-16 space-y-6 overflow-x-hidden">
+      <ServiceCard
+        image={contentHero.src}
+        subtitle="صناعة المحتوى"
+        title="محتــــــــوى يصنع الفــــــــــــرق"
+        description=" في عالم رقمي مليء بالضوضاء، المحتوى هو الملك
+ نحن نصنع لك محتوى يُلفت، يُقنع، ويُحوّل، لأننا نعرف كيف نحكي القصة الصح لجمهورك."
+      />
+      <WhatIsItSection
+        image={WhatIsContentMaking.src}
+        title="ماذا يعني صناعـــــــة محتــــــوى؟"
+        button="ابدا مشروعك الان"
+        desc={() => (
+          <ul className=" list-disc list-inside text-base sm:text-xl xl:text-2xl space-y-3">
+            <li>
+              في عصر التحول الرقمي السريع، أول انطباع عن أي نشاط تجاري أو علامة
+              تجارية بيبدأ من موقعها الإلكتروني.
+            </li>
+            <li>
+              الموقع ليس مجرد تصميم أو كتالوج خدمات، ده ببساطة مكتبك الرقمي الذي
+              يفتح 24 ساعة في اليوم، 7 أيام في الأسبوع.
+            </li>
+            <li>
+              الموقع يقابل العملاء في أي وقت ومن أي مكان، وده بيساعد على زيادة
+              فرص التواصل والبيع.
+            </li>
+            <li>
+              سواء كنت صاحب شركة، متجر إلكتروني، مقدم خدمة فردية، أو حتى فنان
+              بتعرض شغلك، موقعك الإلكتروني هو القناة التي تصل من خلالها صوتك و
+              رسالتك للعالم.
+            </li>
+            <li>
+              خدمة تصميم المواقع عندنا في Prime مبنية على مبدأ بسيط: &quot;كل موقع
+              يجب ان يكون ذكي، مميز، وسهل الاستخدام.&quot;
+            </li>
+          </ul>
+        )}
+      />
+      <CardHoverEffectDemo
+        title=" لماذا تختارنا لصناعة المحتــــــــوى؟"
+        description={<>أننا نفهم جمهورك قبل نكتب له:</>}
+        projects={projectsContentCreation}
+      />
+      <ServiceShowcase
+        categories={categoriesContentCreation}
+        title="مــــــاذا تقــــدم لك شــــركة prime في هذه الخــــدمة؟"
+      />
+      <TimeLineHorizontal
+        items={StepsToContentCreaction}
+        title=" خطوات صناعة المحتــــــــــوى معنــــــــــا"
+      />
+      <SectionTwoPics
         title="ما هي النتيجة المتوقعة بعد انشاء محتوي معنا ؟"
         description="نقدم محتوى:"
         features={[
@@ -56,72 +84,7 @@ const page = () => {
         logoImage={TwoImageContent2.src}
         buttonVariant="main"
         className="my-8"
-      /> */}
-      {/* <SectionTwoPics
-        title="متى تحتاج الي السيو لمشروعــــــك؟"
-        features={[
-          "عندك موقع إلكتروني؟",
-          "تريد مبيعات أو زيارات مستمرة بدون إعلان؟",
-          "تبغى تظهر في النتائج الأولى في مجالك؟",
-        ]}
-        buttonText="اطلب الخدمة الان"
-        mainImage={TwoImageSeo1.src}
-        logoImage={TwoImageSeo2.src}
-        buttonVariant="main"
-        className="my-8"
-      >
-        <>
-          <h2 className="text-2xl font-bold mb-4 text-white">
-            إذا <span className="text-gold">السيـــــــو</span> هو الحل الذكــي
-            والفعــــــــــال!
-          </h2>
-        </>
-      </SectionTwoPics> */}
-      <SectionTwoPics
-        title="لمن نقدم هذه الخدمــــــــــــة؟"
-        features={[
-          "المواقع الإلكترونية (الشركات، المتاجر، المدونات...)",
-          "التطبيقات الذكية (iOS و Android)",
-          "لوحات التحكم وأنظمة ERP",
-          "الصفحات التعريفية وصفحات الهبوط",
-        ]}
-        buttonText="اطلب الخدمة الان"
-        mainImage={TwoImageUI1.src}
-        logoImage={TwoImageUI2.src}
-        buttonVariant="main"
-        className="my-8"
-      >
-        <>
-          <h2 className="text-2xl font-semibold mb-3 text-gold">
-             لأن التصميم ليس مجرد جمال بصري...
-          </h2>
-          <h2 className="text-2xl font-medium mb-4 text-white/80">
-            بل هو أداة تسويقية تؤثر في قرارات العملاء وتجعل تجربتهم معك مريحة
-            واحترافية وممتعة.{" "}
-          </h2>
-        </>
-      </SectionTwoPics>
-      <SectionTwoPics
-        title="متى تبــــدأ حملـــة إعــــلانية ؟"
-        features={[
-          "عندك منتج أو خدمة تبغى توصل لأكبر عدد بسرعة؟",
-          "تبغى نتائج واضحة قابلة للقياس؟",
-          "تبغى توفر ميزانية وتستثمرها صح؟",
-        ]}
-        buttonText="اطلب الخدمة الان"
-        mainImage={TwoImageCampaign1.src}
-        logoImage={TwoImageCampaign2.src}
-        buttonVariant="main"
-        className="my-8"
-      >
-        <>
-          <h2 className="text-2xl font-bold mb-4 text-white">
-            إذن،{" "}
-            <span className="text-gold">الإعلانــــــــات الممولــــــة</span>{" "}
-            معانا هي خيارك الأول.
-          </h2>
-        </>
-      </SectionTwoPics>
+      />
     </div>
   );
 };

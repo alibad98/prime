@@ -16,15 +16,18 @@ export default function TimeLineHorizontal({items ,title}:{
   title:string;
 }) {
   // Create an array of refs for each item
-  const itemRefs = useRef(items.map(() => useRef(null)));
+  const itemRefs = useRef([]);
+  itemRefs.current = items.map((_, i) => itemRefs.current[i] ?? createRef());
 
   // Create an array to track if each item is in view
-  const itemsInView = items.map((_, index) =>
-    useInView(itemRefs.current[index], {
+  const itemsInView = items.map(() => useRef(false));
+  items.forEach((_, index) => {
+    const isInView = useInView(itemRefs.current[index], {
       once: false,
       margin: "0px 0px -100px 0px",
-    })
-  );
+    });
+    itemsInView[index].current = isInView;
+  });
 
   return (
     <section className="section container flex flex-col items-center justify-center space-y-16">
@@ -78,9 +81,13 @@ export default function TimeLineHorizontal({items ,title}:{
       <div className="lg:hidden w-full">
         <TimeLineComponent
           items={items}
-          title="خطـــــوات العمـــــل معنــــــا"
+          title={title}
         />
       </div>
     </section>
   );
 }
+function createRef(): never {
+  throw new Error("Function not implemented.");
+}
+

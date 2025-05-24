@@ -48,11 +48,17 @@ const WhatIsItSection = ({
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          <Button variant="main">
-            <span className="text-base sm:text-lg md:text-xl font-medium">
-              {button}
-            </span>
-          </Button>
+          <a
+            href="https://api.whatsapp.com/send?phone=966559713394"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="main">
+              <span className="text-base sm:text-lg md:text-xl font-medium">
+                {button}
+              </span>
+            </Button>
+          </a>
         </motion.div>
       </motion.div>
 

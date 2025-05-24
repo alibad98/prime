@@ -25,7 +25,35 @@ const notoNaskhArabic = Noto_Naskh_Arabic({
 export const metadata: Metadata = {
   title: 'Prime',
   description: 'E-Commerce Solutions Co.',
+  keywords: ['e-commerce marketing', 'online stores', 'Prime', 'E-Commerce Solutions', 'solutions','marketing agency', 'digital marketing', 'web development', 'SEO', 'social media management'],
+  authors: [{ name: 'Prime Team' }],
+  creator: 'Prime',
+  metadataBase: new URL('http://www.prime-agency.org/'),
+  openGraph: {
+    title: 'Prime',
+    description: 'E-Commerce Solutions Co.',
+    url: 'http://www.prime-agency.org/',
+    siteName: 'Prime',
+    images: [
+      {
+        url: '/src/images/logo/gold.png', // public/src/images/logo/gold.png
+        width: 1200,
+        height: 630,
+        alt: 'Prime E-Commerce',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Prime',
+    description: 'E-Commerce Solutions Co.',
+    images: ['/src/images/logo/gold.png'],
+    creator: '@prime',
+  },
 };
+
 
 export default function RootLayout({
   children,

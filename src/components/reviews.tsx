@@ -34,7 +34,7 @@ const Reviews = () => {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-white/80 text-lg sm:text-xl md:text-2xl leading-relaxed max-w-3xl"
           >
-            عملائنا يشهدون: "برايم غر طريقة تواصلنا مع عملائنا تمامًا!"
+            عملائنا يشهدون: &quot;برايم غر طريقة تواصلنا مع عملائنا تمامًا!&quot;
           </motion.p>
         </motion.div>
 

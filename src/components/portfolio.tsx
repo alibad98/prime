@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
-import portfolioImage from "@/images/portfolioImage.png";
 import HeadText from "./HeadText";
 import { OurWorkImages } from "@/lib/data";
 
@@ -37,8 +36,8 @@ const Portfolio = () => {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ delay: 0.5, duration: 0.8 }}
       >
-        <InfiniteMovingCards items={OurWorkImages} direction="left" speed="normal" />
-        <InfiniteMovingCards items={OurWorkImages} direction="right" speed="normal" />
+        <InfiniteMovingCards items={OurWorkImages} direction="left" speed="slow" />
+        <InfiniteMovingCards items={OurWorkImages} direction="right" speed="slow" />
       </motion.div>
     </section>
   );
