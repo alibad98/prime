@@ -138,7 +138,7 @@ const Navbar = () => {
             <div
               key={link.name}
               className={cn(
-                "transform transition-all duration-500 ease-out overflow-hidden border-b last:border-0 w-full text-center",
+                "transform transition-all duration-500 ease-out overflow-hidden border-b last:border-0 border-white/20 w-full text-center",
                 isOpen
                   ? "translate-y-0 opacity-100"
                   : "translate-y-10 opacity-0",
